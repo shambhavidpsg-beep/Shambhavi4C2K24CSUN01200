@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shambhavi | CSE Student & Aspiring Soft Skills Trainer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3EE;
+    --warm: #EDE5D8;
+    --ink: #1A1612;
+    --muted: #6B6157;
+    --accent: #C4633A;
+    --accent-light: #F0D5C8;
+    --teal: #2D6E6A;
+    --teal-light: #D1E9E8;
+    --gold: #B8892A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(247,243,238,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--warm);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 60px;
+  }
+  .hero-left {
+    background: var(--ink);
+    padding: 80px 8% 80px 10%;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .hero-left::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border: 1px solid rgba(196,99,58,0.3);
+    border-radius: 50%;
+  }
+  .hero-left::after {
+    content: '';
+    position: absolute; bottom: 60px; left: -40px;
+    width: 160px; height: 160px;
+    border: 1px solid rgba(196,99,58,0.2);
+    border-radius: 50%;
+  }
+  .hero-tag {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 7vw, 84px);
+    font-weight: 600;
+    color: #F7F3EE;
+    line-height: 1.05;
+    margin-bottom: 32px;
+  }
+  .hero-desc {
+    font-size: 15px;
+    color: rgba(247,243,238,0.65);
+    max-width: 340px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 14px 32px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .hero-cta:hover { background: #a84e2c; transform: translateY(-1px); }
+
+  .hero-right {
+    background: var(--warm);
+    padding: 80px 10% 80px 8%;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .hero-objective-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .hero-objective {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--ink);
+    line-height: 1.7;
+    max-width: 420px;
+    border-left: 3px solid var(--accent);
+    padding-left: 24px;
+    margin-bottom: 48px;
+  }
+  .hero-contact { display: flex; flex-direction: column; gap: 12px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 14px; color: var(--muted);
+  }
+  .contact-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%; flex-shrink: 0;
+  }
+  .contact-item a { color: var(--teal); text-decoration: none; }
+  .contact-item a:hover { text-decoration: underline; }
+
+  /* SECTIONS */
+  section { padding: 100px 10%; }
+  .section-header {
+    display: flex; align-items: baseline; gap: 20px;
+    margin-bottom: 64px;
+  }
+  .section-number {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .section-line {
+    flex: 1; height: 1px;
+    background: var(--warm);
+  }
+
+  /* EDUCATION */
+  #education { background: #fff; }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .edu-card {
+    background: var(--cream);
+    border: 1px solid var(--warm);
+    border-radius: 4px;
+    padding: 36px 32px;
+    position: relative; overflow: hidden;
+  }
+  .edu-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--accent);
+  }
+  .edu-institution {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .edu-year {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* EXPERIENCE */
+  #experience { background: var(--cream); }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--warm);
+  }
+  .exp-item:last-child { border-bottom: none; }
+  .exp-meta { }
+  .exp-org {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--teal);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .exp-date {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .exp-badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+  .exp-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .exp-points { list-style: none; }
+  .exp-points li {
+    font-size: 14px;
+    color: var(--muted);
+    padding: 6px 0 6px 20px;
+    position: relative;
+  }
+  .exp-points li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  /* CERTIFICATIONS */
+  #certifications { background: var(--ink); }
+  #certifications .section-title { color: var(--cream); }
+  #certifications .section-number { color: var(--accent); }
+  #certifications .section-line { background: rgba(247,243,238,0.1); }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+  .cert-card {
+    border: 1px solid rgba(247,243,238,0.15);
+    border-radius: 4px;
+    padding: 32px 28px;
+    position: relative;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .cert-card:hover {
+    border-color: var(--accent);
+    background: rgba(196,99,58,0.05);
+  }
+  .cert-icon {
+    width: 40px; height: 40px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin-bottom: 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .cert-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .cert-issuer {
+    font-size: 13px;
+    color: rgba(247,243,238,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+  .cert-year {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* SKILLS */
+  #skills { background: #fff; }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .skill-group-title {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skill-tag {
+    background: var(--cream);
+    border: 1px solid var(--warm);
+    color: var(--ink);
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+  .skill-tag.accent {
+    background: var(--accent-light);
+    border-color: var(--accent-light);
+    color: var(--accent);
+  }
+
+  /* ACCOLADES */
+  #accolades { background: var(--warm); }
+  .accolade-list { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .accolade-card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 32px 28px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .accolade-card:hover { border-color: var(--accent); }
+  .accolade-event {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .accolade-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .accolade-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .accolade-date {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    padding: 60px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--cream);
+  }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a {
+    font-size: 13px;
+    color: rgba(247,243,238,0.5);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * { animation: fadeUp 0.7s ease both; }
+  .hero-tag { animation-delay: 0.1s; }
+  .hero-name { animation-delay: 0.25s; }
+  .hero-desc { animation-delay: 0.4s; }
+  .hero-cta { animation-delay: 0.55s; }
+  .hero-right > * { animation: fadeUp 0.7s ease both; }
+  .hero-objective-label { animation-delay: 0.35s; }
+  .hero-objective { animation-delay: 0.5s; }
+  .hero-contact { animation-delay: 0.65s; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left, .hero-right { padding: 60px 8%; }
+    .edu-grid, .skills-grid, .accolade-list { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 12px; }
+    nav { display: none; }
+    footer { flex-direction: column; gap: 24px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Shambhavi</a>
+  <ul class="nav-links">
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#accolades">Accolades</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">CSE Student · Aspiring Soft Skills Trainer</p>
+    <h1 class="hero-name">Shamb&shy;havi</h1>
+    <p class="hero-desc">A technologist with a human touch — bridging code, communication, and social impact through education and innovation.</p>
+    <a href="#experience" class="hero-cta">View My Work</a>
+  </div>
+  <div class="hero-right">
+    <p class="hero-objective-label">Career Objective</p>
+    <blockquote class="hero-objective">
+      "To contribute to innovative and impact-oriented projects that combine technical excellence with social responsibility, creating meaningful real-world outcomes through soft skills with efficacy."
+    </blockquote>
+    <div class="hero-contact">
+      <div class="contact-item">
+        <span class="contact-dot"></span>
+        <a href="mailto:shambhavi.dpsg@gmail.com">shambhavi.dpsg@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-dot"></span>
+        <a href="https://www.linkedin.com/in/shambhavi-964a39358/" target="_blank">LinkedIn Profile</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-dot"></span>
+        <span>Manav Rachna University, Delhi NCR</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2 class="section-title">Education</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <p class="edu-institution">Delhi Public School Ghaziabad</p>
+      <p class="edu-degree">Schooling</p>
+      <p class="edu-year">2010 – 2024</p>
+    </div>
+    <div class="edu-card">
+      <p class="edu-institution">Manav Rachna University</p>
+      <p class="edu-degree">Bachelor of Technology — Computer Science & Engineering</p>
+      <p class="edu-year">2024 – 2028 (Ongoing)</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-meta">
+      <p class="exp-org">Aachal Welfare Foundation</p>
+      <p class="exp-date">Aug – Sep 2025</p>
+      <span class="exp-badge">Social Work</span>
+    </div>
+    <div>
+      <p class="exp-role">Social Worker</p>
+      <ul class="exp-points">
+        <li>Spreading digital awareness and literacy in underserved communities</li>
+        <li>Handling animal care and supporting specially-abled students</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-meta">
+      <p class="exp-org">Siemens Mobility</p>
+      <p class="exp-date">Oct 2025</p>
+      <span class="exp-badge">Forage Simulation</span>
+    </div>
+    <div>
+      <p class="exp-role">Commercial Project Manager</p>
+      <ul class="exp-points">
+        <li>KPI (Key Performance Indicator) Analysis</li>
+        <li>Estimate at Completion (EAC) and Project Planning</li>
+        <li>Budgeting and financial forecasting</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-meta">
+      <p class="exp-org">Amazon Web Services</p>
+      <p class="exp-date">Oct 2025</p>
+      <span class="exp-badge">Forage Simulation</span>
+    </div>
+    <div>
+      <p class="exp-role">Solutions Architect</p>
+      <ul class="exp-points">
+        <li>Designing scalable hosting architectures</li>
+        <li>Cost estimation and cloud optimization</li>
+        <li>Visualizing solutions via architecture diagrams</li>
+        <li>Requirement gathering and problem analysis</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-meta">
+      <p class="exp-org">Red Bull</p>
+      <p class="exp-date">Jan 2026</p>
+      <span class="exp-badge">Forage Simulation</span>
+    </div>
+    <div>
+      <p class="exp-role">Off-Premise Sales</p>
+      <ul class="exp-points">
+        <li>Client analysis and contemplating market dynamics</li>
+        <li>Client presentation: structuring insights, persuasive communication</li>
+        <li>Business acumen: how global brands approach sales strategy</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Certifications</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon">⚡</div>
+      <p class="cert-name">AWS Technical Certificate</p>
+      <p class="cert-issuer">Amazon Web Services</p>
+      <p class="cert-year">2025</p>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🏭</div>
+      <p class="cert-name">Siemens Mobility Certificate</p>
+      <p class="cert-issuer">Siemens Mobility (via TATA)</p>
+      <p class="cert-year">2025</p>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🎤</div>
+      <p class="cert-name">Soft Skills Coach Certificate</p>
+      <p class="cert-issuer">Udemy</p>
+      <p class="cert-year">2025</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Core Strengths</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div>
+      <p class="skill-group-title">Technical Skills</p>
+      <div class="skill-tags">
+        <span class="skill-tag accent">C Programming</span>
+        <span class="skill-tag accent">Python</span>
+        <span class="skill-tag accent">Java (OOP)</span>
+        <span class="skill-tag accent">Web Designing</span>
+        <span class="skill-tag">Cloud Architecture</span>
+        <span class="skill-tag">KPI Analysis</span>
+        <span class="skill-tag">Project Planning</span>
+      </div>
+    </div>
+    <div>
+      <p class="skill-group-title">Soft Skills</p>
+      <div class="skill-tags">
+        <span class="skill-tag accent">Public Speaking</span>
+        <span class="skill-tag accent">Training & Facilitation</span>
+        <span class="skill-tag accent">Team Management</span>
+        <span class="skill-tag">Group Discussion</span>
+        <span class="skill-tag">Presentation Skills</span>
+        <span class="skill-tag">Interpersonal Skills</span>
+        <span class="skill-tag">Self-Motivated</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOLADES -->
+<section id="accolades">
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <h2 class="section-title">Accolades</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="accolade-list">
+    <div class="accolade-card">
+      <p class="accolade-event">IEEE · Manav Rachna University</p>
+      <p class="accolade-title">"Her Lens. Her Voice."</p>
+      <p class="accolade-desc">Delivered a powerful speech on Women Empowerment and secured the first prize at this prestigious IEEE event.</p>
+      <p class="accolade-date">November 2025</p>
+    </div>
+    <div class="accolade-card">
+      <p class="accolade-event">CDC · Utsav of Excellence</p>
+      <p class="accolade-title">Top 10 CDC Titan</p>
+      <p class="accolade-desc">Qualified through an Aptitude Test, Treasure Hunt, Group Discussion round, and an impromptu Extempore, emerging as one of the top 10 CDC Titans.</p>
+      <p class="accolade-date">December 2025</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-name">Shambhavi</p>
+  <div class="footer-links">
+    <a href="mailto:shambhavi.dpsg@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/shambhavi-964a39358/" target="_blank">LinkedIn</a>
+    <a href="#education">Back to top</a>
+  </div>
+</footer>
+
+</body>
+</html>
